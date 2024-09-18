@@ -141,6 +141,34 @@
   line-height: 0;
 }
 
+.filter-saturate {
+  filter: saturate(18%);
+}
+
+.filter-brightness {
+  filter: brightness(200%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(30deg);
+}
+
+.filter-invert {
+  filter: invert(0.8);
+}
+
+.filter-sepia {
+  filter: sepia(1);
+}
+
+.filter-blur {
+  filter: blur(20px);
+}
+
+.filter-mix {
+  filter: brightness(120%) hue-rotate(100deg) saturate(190%) invert(35%) blur(1px);
+}
+
 .watermark {
   position: absolute;
   inset: 23px 11px auto auto;
