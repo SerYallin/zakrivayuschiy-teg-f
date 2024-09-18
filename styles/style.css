@@ -250,8 +250,6 @@
   mix-blend-mode: difference;
   color: var(--button-color);
   z-index: 1;
-  display: inline-block;
-  white-space: nowrap;
   @supports not (mix-blend-mode: difference) {
     color: var(--main-color);
   }
@@ -337,7 +335,8 @@
 
 .footer {
   padding: 50px 0 100px 0;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .card__save-button {
@@ -345,11 +344,13 @@
   border: 2px solid var(--main-color);
   padding: 15px 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  gap: 8px 0;
+  max-width: 340px;
+  width: max(340px, calc(100% - 69px));
+  gap: 8px;
 }
 
 .memorize-icon {
@@ -373,7 +374,7 @@
 }
 
 dialog[open] {
-  max-width: calc(100% - 34px);
+  max-width: min(359px, calc(100% - 34px));
   padding: 30px 40px;
   border: 2px solid var(--main-color);
   background-color: var(--background-color);
@@ -414,18 +415,8 @@ dialog::backdrop {
   .header-title {
     padding-top: 138px;
   }
-  .card__save-button {
-    flex-direction: row;
-    gap: 0 8px;
-    min-width: 340px;
-  }
 
   .memorize-icon {
     flex-basis: 21px;
-  }
-
-  dialog[open]  {
-    max-width: 359px;
-    width: 100%;
   }
 }
