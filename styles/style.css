@@ -15,29 +15,30 @@
 */
 
 .page {
-  min-inline-size: 320px;
-  max-inline-size: 700px;
   margin: 0 auto;
-  min-block-size: 100dvb;
+  color: var(--main-color);
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--text-font-weight);
   font-size: 18px;
+  background-color: black;
   background-image: var(--background-page);
   background-size: cover;
-  background-color: black;
-  color: var(--main-color);
+  min-inline-size: 320px;
+  max-inline-size: 700px;
+  min-block-size: 100dvb;
+  font-variation-settings: "wght" var(--text-font-weight);
 }
 
 
 .header {
-  font-family: var(--second-font), system-ui;
-  background-color: var(--background-color);
-  text-transform: uppercase;
-  border: 2px solid var(--main-color);
-  text-align: center;
   margin: 100px 0;
+  border: 2px solid var(--main-color);
+  font-family: var(--second-font), system-ui;
   font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: var(--background-color);
 }
+
 .header-title {
   padding: 121px 14px 19px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -61,16 +62,17 @@
 }
 
 .theme-menu__item {
-  text-align: left;
   padding-left: 20px;
+  text-align: left;
 }
+
 .theme-menu__button {
-  text-transform: uppercase;
+  position: relative;
   border: 0;
   padding: 0;
-  position: relative;
-  transition: opacity ease 0.3s;
+  text-transform: uppercase;
   background-color: transparent;
+  transition: opacity ease 0.3s;
 }
 
 .theme-menu__button:focus,
@@ -93,25 +95,25 @@
 
 .theme-menu__button[disabled="true"]:before {
   content: "▶";
-  display: block;
   position: absolute;
   top: 0;
+  display: block;
   animation: arrow-left-animation 0.5s ease-in-out alternate infinite;
 }
 
 .theme-menu__button:after {
-  position: absolute;
   content: "";
-  border-bottom: 2px solid var(--main-color);
+  position: absolute;
   inset: 0 0 -2px 0;
+  border-bottom: 2px solid var(--main-color);
   transform: scaleX(0);
   transform-origin: left;
 }
 
 .theme-menu__button:focus-visible:after {
   opacity: 0.6;
-  transform: scaleX(1);
   transition: opacity ease 0.3s, transform ease 0.3s;
+  transform: scaleX(1);
 }
 
 .content {
@@ -127,38 +129,37 @@
 }
 
 .card__title {
-  font-size: 18px;
-  font-variation-settings: 'wght' var(--title-font-weight);
-  padding: 4px 10px 6px;
   border-bottom: 2px solid var(--main-color);
+  padding: 4px 10px 6px;
+  font-size: 18px;
+  font-variation-settings: "wght" var(--title-font-weight);
 }
 
 .card__image {
+  position: relative;
   border-bottom: 2px solid var(--main-color);
   line-height: 0;
-  position: relative;
 }
 
 .watermark {
   position: absolute;
   inset: 23px 11px auto auto;
+  opacity: 0.5;
+  color: var(--main-color);
   font-family: var(--second-font), system-ui;
   font-size: 14px;
-  color: var(--main-color);
   mix-blend-mode: hard-light;
-  -webkit-text-stroke: 1px var(--watermark-color);
   @supports not (-webkit-text-stroke: 1px var(--watermark-color)) {
-    text-shadow:
-      -1px -1px 0 var(--watermark-color),
-      0 -1px 0 var(--watermark-color),
-      1px -1px 0 var(--watermark-color),
-      1px 0 0 var(--watermark-color),
-      1px 1px 0 var(--watermark-color),
-      0 1px 0 var(--watermark-color),
-      -1px 1px 0 var(--watermark-color),
-      -1px 0 0 var(--watermark-color);;
+    text-shadow: -1px -1px 0 var(--watermark-color),
+    0 -1px 0 var(--watermark-color),
+    1px -1px 0 var(--watermark-color),
+    1px 0 0 var(--watermark-color),
+    1px 1px 0 var(--watermark-color),
+    0 1px 0 var(--watermark-color),
+    -1px 1px 0 var(--watermark-color),
+    -1px 0 0 var(--watermark-color);;
   }
-  opacity: 0.5;
+  -webkit-text-stroke: 1px var(--watermark-color);
 }
 
 .card__image img {
@@ -166,27 +167,27 @@
 }
 
 .card__description {
-  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 27px;
+  padding: 25px;
 }
 
 .card__buttons {
-  padding: 0 25px 25px;
   display: flex;
-  align-items: stretch;
   justify-content: end;
+  align-items: stretch;
   gap: 6px;
+  padding: 0 25px 25px;
 }
 
 .card__button {
+  position: relative;
+  margin: 0;
   border: none;
   padding: 0;
-  margin: 0;
-  background-color: transparent;
   line-height: 0;
-  position: relative;
+  background-color: transparent;
 }
 
 .card__button:focus,
@@ -211,19 +212,19 @@
 }
 
 .button {
-  padding: 0;
-  border: 2px solid var(--main-color);
-  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   min-width: 130px;
   min-height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  border: 2px solid var(--main-color);
+  padding: 0;
+  cursor: pointer;
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 #000000;
   transition: box-shadow ease 0.3s;
 }
 
@@ -232,24 +233,24 @@
   position: absolute;
   inset: 0 0 0 0;
   background-color: var(--main-color);
+  transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s ease-in-out;
 }
 
 .button:hover:before {
-  transform: scaleX(1);
   transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
 }
 
 
 .button__text {
+  z-index: 1;
+  color: var(--button-color);
   font-family: var(--second-font), system-ui;
   font-size: 14px;
   line-height: 1;
   mix-blend-mode: difference;
-  color: var(--button-color);
-  z-index: 1;
   @supports not (mix-blend-mode: difference) {
     color: var(--main-color);
   }
@@ -262,9 +263,9 @@
 }
 
 /*!* Стили иконки Сердечко. *!*/
-.like-icon{
-  max-height: 34px;
+.like-icon {
   width: auto;
+  max-height: 34px;
 }
 
 .like-icon .heart .border {
@@ -297,27 +298,27 @@
 }
 
 .like-icon:active .core {
-  fill: #f00;
+  fill: #FF0000;
   transition: fill linear 0.3s;
-}
+}dialog[open]
 
 .like-icon:active .body {
-  fill: #f00;
+  fill: #FF0000;
   transition: fill linear 0.3s 0.05s;
 }
 
 .like-icon.is-liked .core {
-  fill: #f00;
+  fill: #FF0000;
   transition: fill linear 0.3s;
 }
 
 .like-icon.is-liked .body {
-  fill: #f00;
+  fill: #FF0000;
   transition: fill linear 0.3s 0.05s;
 }
 
 .like-icon.is-liked .border {
-  fill: #f00;
+  fill: #FF0000;
   transition: fill linear 0.3s 0.06s;
 }
 
@@ -334,29 +335,29 @@
 }
 
 .footer {
-  padding: 50px 0 100px 0;
   display: flex;
   justify-content: center;
+  padding: 50px 0 100px 0;
 }
 
 .card__save-button {
-  background-color: var(--background-color);
-  border: 2px solid var(--main-color);
-  padding: 15px 20px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
-  max-width: 340px;
-  width: max(340px, calc(100% - 69px));
+  align-items: center;
   gap: 8px;
+  width: max(340px, calc(100% - 69px));
+  max-width: 340px;
+  border: 2px solid var(--main-color);
+  padding: 15px 20px;
+  background-color: var(--background-color);
 }
-
+dialog[open]
 .memorize-icon {
-  flex-basis: 28px;
-  flex-shrink: 0;
   z-index: 1;
+  flex-shrink: 0;
+  flex-basis: 28px;
   mix-blend-mode: difference;
 }
 
@@ -374,17 +375,18 @@
 }
 
 dialog[open] {
-  max-width: min(359px, calc(100% - 34px));
-  padding: 30px 40px;
-  border: 2px solid var(--main-color);
-  background-color: var(--background-color);
-  color: var(--main-color);
   display: flex;
   flex-direction: column;
-  gap: 30px;
   flex-wrap: nowrap;
   justify-content: stretch;
+  gap: 30px;
+  max-width: min(359px, calc(100% - 34px));
+  border: 2px solid var(--main-color);
+  padding: 30px 40px;
+  color: var(--main-color);
+  background-color: var(--background-color);
 }
+
 .dialog-body {
   display: flex;
   flex-direction: row;
@@ -393,10 +395,10 @@ dialog[open] {
 }
 
 .dialog-body .memorize-icon {
-  max-height: 39px;
-  width: auto;
-  flex-basis: 39px;
   flex-shrink: 0;
+  flex-basis: 39px;
+  width: auto;
+  max-height: 39px;
 }
 
 .dialog-body p {

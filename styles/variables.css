@@ -1,10 +1,10 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-  --background-page: repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px), repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px), linear-gradient(180deg, #e7e7e7 0%, #1a1a1a 100%);
-  --background-color: #fff;
-  --main-color: #000;
-  --button-color: #fff;
-  --watermark-color: #fff;
+  --background-page: repeating-linear-gradient(#D3D3D3 0 2px, transparent 2px 4px), repeating-linear-gradient(90deg, #D3D3D3 0 2px, transparent 2px 4px), linear-gradient(180deg, #E7E7E7 0%, #1A1A1A 100%);
+  --background-color: #FFFFFF;
+  --main-color: #000000;
+  --button-color: #FFFFFF;
+  --watermark-color: #FFFFFF;
   --main-font: "Inter Variable";
   --second-font: "Press Start 2P";
   --text-font-weight: 400;
