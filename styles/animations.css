@@ -13,6 +13,78 @@
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
 
+/*!* Стили иконки Сердечко. *!*/
+.like-icon {
+  width: auto;
+  max-height: 34px;
+}
+
+.like-icon .heart .border {
+  fill: var(--main-color);
+  transition: fill linear 0.1s;
+}
+
+.like-icon .core {
+  fill: transparent;
+  transition: fill linear 0.3s 0.03s;
+}
+
+.like-icon .body {
+  fill: transparent;
+  transition: fill linear 0.3s;
+}
+
+.like-icon .splash {
+  fill: transparent;
+}
+
+.like-icon:hover .core {
+  fill: var(--main-color);
+  transition: fill linear 0.3s;
+}
+
+.like-icon:hover .body {
+  fill: var(--main-color);
+  transition: fill linear 0.3s 0.05s;
+}
+
+.like-icon:active .core {
+  fill: var(--active-heart-color);
+  transition: fill linear 0.3s;
+}
+
+.like-icon:active .body {
+  fill: var(--active-heart-color);
+  transition: fill linear 0.3s 0.05s;
+}
+
+.like-icon.is-liked .core {
+  fill: var(--active-heart-color);
+  transition: fill linear 0.3s;
+}
+
+.like-icon.is-liked .body {
+  fill: var(--active-heart-color);
+  transition: fill linear 0.3s 0.05s;
+}
+
+.like-icon.is-liked .border {
+  fill: var(--active-heart-color);
+  transition: fill linear 0.3s 0.06s;
+}
+
+.like-icon .heart {
+  transform-origin: center;
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale ease-in 0.3s 0.1s alternate;
+}
+
+.like-icon.is-liked .splash {
+  animation: heart-splash ease-in 0.3s 0.3s alternate;
+}
+
 @keyframes arrow-left-animation {
   from {
     left: -23px;
@@ -36,6 +108,6 @@
     fill: transparent;
   }
   to {
-    fill: #FF0000;
+    fill: var(--active-heart-color);
   }
 }

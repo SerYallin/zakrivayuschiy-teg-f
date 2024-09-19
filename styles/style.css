@@ -19,9 +19,9 @@
   color: var(--main-color);
   font-family: var(--main-font), sans-serif;
   font-size: 18px;
-  background-color: black;
   background-image: var(--background-page);
   background-size: cover;
+  background-attachment: fixed;
   min-inline-size: 320px;
   max-inline-size: 700px;
   min-block-size: 100dvb;
@@ -39,12 +39,13 @@
   background-color: var(--background-color);
 }
 
-.header-title {
+.header-logo {
+  display: inline-block;
   padding: 121px 14px 19px;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
 }
 
-.header-description {
+.header-title {
   margin-bottom: 25px;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
 }
@@ -86,7 +87,6 @@
 .theme-menu__button:focus-visible,
 .theme-menu__button[disabled="true"] {
   opacity: 0.6;
-  transition: opacity ease 0.3s;
 }
 
 .theme-menu__button[disabled="true"] {
@@ -96,9 +96,10 @@
 .theme-menu__button[disabled="true"]:before {
   content: "▶";
   position: absolute;
-  top: 0;
   display: block;
   animation: arrow-left-animation 0.5s ease-in-out alternate infinite;
+  inset-inline-start: -19px;
+  inset-block-start: 0;
 }
 
 .theme-menu__button:after {
@@ -111,8 +112,7 @@
 }
 
 .theme-menu__button:focus-visible:after {
-  opacity: 0.6;
-  transition: opacity ease 0.3s, transform ease 0.3s;
+  transition: transform ease 0.3s;
   transform: scaleX(1);
 }
 
@@ -177,7 +177,7 @@
   font-family: var(--second-font), system-ui;
   font-size: 14px;
   mix-blend-mode: hard-light;
-  @supports not (-webkit-text-stroke: 1px var(--watermark-color)) {
+  @supports not ((-webkit-text-stroke: 1px var(--watermark-color)) or (text-stroke: 1px var(--watermark-color))) {
     text-shadow: -1px -1px 0 var(--watermark-color),
     0 -1px 0 var(--watermark-color),
     1px -1px 0 var(--watermark-color),
@@ -188,10 +188,16 @@
     -1px 0 0 var(--watermark-color);;
   }
   -webkit-text-stroke: 1px var(--watermark-color);
+  @supports (text-stroke: 1px var(--watermark-color)) {
+    text-stroke: 1px var(--watermark-color);
+  }
 }
 
 .card__image img {
   width: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1 / 1;
 }
 
 .card__description {
@@ -209,50 +215,23 @@
   padding: 0 25px 25px;
 }
 
-.card__button {
-  position: relative;
-  margin: 0;
-  border: none;
-  padding: 0;
-  line-height: 0;
-  background-color: transparent;
-}
-
-.card__button:focus,
-.card__button:focus-visible {
-  outline: none;
-}
-
-.card__icon-button {
-  align-self: end;
-  border: 2px solid transparent;
-  transition: border-color ease 0.3s;
-}
-
-.card__icon-button:focus-visible {
-  border-color: var(--main-color);
-  transition: border-color ease 0.3s;
-}
-
-.card__button-close {
-  width: 100%;
-  text-transform: uppercase;
-}
-
 .button {
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   min-width: 130px;
   min-height: 38px;
+  margin: 0;
   border: 2px solid var(--main-color);
   padding: 0;
-  cursor: pointer;
+  line-height: 0;
+  background-color: var(--background-color);
 }
 
 .button:focus-visible {
-  box-shadow: 2px 2px 0 #000000;
+  box-shadow: 2px 2px 0 currentColor;
   transition: box-shadow ease 0.3s;
 }
 
@@ -267,15 +246,13 @@
 }
 
 .button:hover:before {
-  transition: transform 0.5s ease-in-out;
   transform: scaleX(1);
 }
-
 
 .button__text {
   z-index: 1;
   color: var(--button-color);
-  font-family: var(--second-font), system-ui;
+  font-family: var(--second-font), fantasy;
   font-size: 14px;
   line-height: 1;
   mix-blend-mode: difference;
@@ -290,102 +267,41 @@
   }
 }
 
-/*!* Стили иконки Сердечко. *!*/
-.like-icon {
-  width: auto;
-  max-height: 34px;
+.card__icon-button {
+  align-self: end;
+  border: 2px solid transparent;
+  background-color: transparent;
+  transition: border-color ease 0.3s;
 }
 
-.like-icon .heart .border {
-  fill: var(--main-color);
-  transition: fill linear 0.1s;
+.card__icon-button:focus-visible {
+  border-color: var(--main-color);
 }
 
-.like-icon .core {
-  fill: transparent;
-  transition: fill linear 0.3s 0.03s;
+.card__button-close {
+  width: 100%;
+  text-transform: uppercase;
 }
 
-.like-icon .body {
-  fill: transparent;
-  transition: fill linear 0.3s;
+.card__save-button {
+  flex-wrap: wrap;
+  gap: 8px;
+  width: max(340px, calc(100% - 69px));
+  max-width: 340px;
+  padding: 15px 20px;
 }
 
-.like-icon .splash {
-  fill: transparent;
-}
-
-.like-icon:hover .core {
-  fill: var(--main-color);
-  transition: fill linear 0.3s;
-}
-
-.like-icon:hover .body {
-  fill: var(--main-color);
-  transition: fill linear 0.3s 0.05s;
-}
-
-.like-icon:active .core {
-  fill: #FF0000;
-  transition: fill linear 0.3s;
-}dialog[open]
-
-.like-icon:active .body {
-  fill: #FF0000;
-  transition: fill linear 0.3s 0.05s;
-}
-
-.like-icon.is-liked .core {
-  fill: #FF0000;
-  transition: fill linear 0.3s;
-}
-
-.like-icon.is-liked .body {
-  fill: #FF0000;
-  transition: fill linear 0.3s 0.05s;
-}
-
-.like-icon.is-liked .border {
-  fill: #FF0000;
-  transition: fill linear 0.3s 0.06s;
-}
-
-.like-icon .heart {
-  transform-origin: center;
-}
-
-.like-icon.is-liked .heart {
-  animation: heart-scale ease-in 0.3s 0.1s alternate;
-}
-
-.like-icon.is-liked .splash {
-  animation: heart-splash ease-in 0.3s 0.3s alternate;
-}
-
-.footer {
+.bottom {
   display: flex;
   justify-content: center;
   padding: 50px 0 100px 0;
 }
 
-.card__save-button {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: max(340px, calc(100% - 69px));
-  max-width: 340px;
-  border: 2px solid var(--main-color);
-  padding: 15px 20px;
-  background-color: var(--background-color);
-}
-dialog[open]
 .memorize-icon {
   z-index: 1;
   flex-shrink: 0;
   flex-basis: 28px;
+  width: auto;
   mix-blend-mode: difference;
 }
 
@@ -423,14 +339,11 @@ dialog[open] {
 }
 
 .dialog-body .memorize-icon {
-  flex-shrink: 0;
   flex-basis: 39px;
-  width: auto;
-  max-height: 39px;
 }
 
-.dialog-body p {
-  font-family: var(--second-font), system-ui;
+.dialog-text {
+  font-family: var(--second-font), fantasy;
   font-size: 14px;
   line-height: 1.5;
   text-transform: uppercase;
@@ -442,7 +355,7 @@ dialog::backdrop {
 }
 
 @media (width > 375px) {
-  .header-title {
+  .header-logo {
     padding-top: 138px;
   }
 
